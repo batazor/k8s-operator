@@ -1,7 +1,7 @@
 package stub
 
 import (
-	"github.com/batazor/k8s-operator/pkg/apis/hello/v1"
+	hello "github.com/batazor/k8s-operator/pkg/apis/hello/v1"
 
 	"github.com/operator-framework/operator-sdk/pkg/sdk/action"
 	"github.com/operator-framework/operator-sdk/pkg/sdk/handler"
@@ -23,7 +23,7 @@ type Handler struct {
 
 func (h *Handler) Handle(ctx types.Context, event types.Event) error {
 	switch o := event.Object.(type) {
-	case *v1.HelloWorld:
+	case *hello.HelloWorld:
 		err := action.Create(newbusyBoxPod(o))
 		if err != nil && !errors.IsAlreadyExists(err) {
 			logrus.Errorf("Failed to create busybox pod : %v", err)
@@ -34,7 +34,7 @@ func (h *Handler) Handle(ctx types.Context, event types.Event) error {
 }
 
 // newbusyBoxPod demonstrates how to create a busybox pod
-func newbusyBoxPod(cr *v1.HelloWorld) *v1.Pod {
+func newbusyBoxPod(cr *hello.HelloWorld) *v1.Pod {
 	labels := map[string]string{
 		"app": "busy-box",
 	}
