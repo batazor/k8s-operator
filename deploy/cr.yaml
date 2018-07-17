@@ -1,0 +1,4 @@
+apiVersion: "hello.world/v1"
+kind: "HelloWorld"
+metadata:
+  name: "example"

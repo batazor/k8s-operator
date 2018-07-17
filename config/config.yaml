@@ -1,0 +1,3 @@
+apiVersion: hello.world/v1
+kind: HelloWorld
+projectName: k8s-operator
