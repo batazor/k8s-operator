@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.9
 
 ADD tmp/_output/bin/k8s-operator /usr/local/bin/k8s-operator
 
